@@ -38,6 +38,11 @@
             object-fit: cover;
             border: 4px solid #3c3c3c;
             box-shadow: 0 0 20px rgba(60, 60, 60, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .avatar:hover {
+            transform: scale(1.1);
         }
         h1 {
             margin-bottom: 0.5rem;
@@ -154,7 +159,7 @@
 <body>
     <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
     <div class="container">
-        <img src="https://scontent.ftpe4-1.fna.fbcdn.net/v/t39.30808-6/440488974_2099776167044081_3794764817713871643_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=IEmn1MPs2eYQ7kNvgEhKx92&_nc_ht=scontent.ftpe4-1.fna&oh=00_AYAKQQm_zHvKbijsWj6jSCcBlduoDzYng7ddbjPcqQGnAA&oe=6686AF56" alt="尊貴" class="avatar">
+        <img src="https://scontent.ftpe4-1.fna.fbcdn.net/v/t39.30808-6/440488974_2099776167044081_3794764817713871643_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=IEmn1MPs2eYQ7kNvgEhKx92&_nc_ht=scontent.ftpe4-1.fna&oh=00_AYAKQQm_zHvKbijsWj6jSCcBlduoDzYng7ddbjPcqQGnAA&oe=6686AF56" alt="尊貴" class="avatar" id="avatar">
         <h1>酷吧 這我個人網站</h1>
         <p>社群連結</p>
         
@@ -175,6 +180,25 @@
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
         }
+
+        const avatar = document.getElementById('avatar');
+        const avatarImages = [
+            'https://scontent.ftpe4-1.fna.fbcdn.net/v/t39.30808-6/440488974_2099776167044081_3794764817713871643_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=IEmn1MPs2eYQ7kNvgEhKx92&_nc_ht=scontent.ftpe4-1.fna&oh=00_AYAKQQm_zHvKbijsWj6jSCcBlduoDzYng7ddbjPcqQGnAA&oe=6686AF56',
+            'https://scontent.ftpe4-1.fna.fbcdn.net/v/t39.30808-6/440488974_2099776167044081_3794764817713871643_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=2qAE1_Ag3sYAX-GWtgpJ&_nc_ht=scontent.ftpe4-1.fna&oh=00_AfCdm4aHqPqY8dyauCP7TxPz6y6vU8gHoEHO4vSm_JPpNQ&oe=669F8D56',
+            'https://scontent.ftpe4-1.fna.fbcdn.net/v/t39.30808-6/440488974_2099776167044081_3794764817713871643_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=KvTAoS_WJE4AX_GXeEh&_nc_ht=scontent.ftpe4-1.fna&oh=00_AfBAJ7S0MB5BgFgI5CJXWNNaytH1DjcyR0pJPT4JnPTEYQ&oe=668E3F56'
+        ];
+
+        avatar.addEventListener('click', () => {
+            const currentImage = avatar.src;
+            let newImage = avatarImages[0];
+            for (let i = 0; i < avatarImages.length; i++) {
+                if (currentImage === avatarImages[i]) {
+                    newImage = avatarImages[(i + 1) % avatarImages.length];
+                    break;
+                }
+            }
+            avatar.src = newImage;
+        });
     </script>
 </body>
 </html>
