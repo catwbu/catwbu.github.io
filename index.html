@@ -17,6 +17,7 @@
             align-items: center;
             min-height: 100vh;
             background: linear-gradient(45deg, #121212, #1a1a1a);
+            transition: background-color 0.3s, color 0.3s;
         }
         .container {
             text-align: center;
@@ -103,9 +104,40 @@
                 width: 100%;
             }
         }
+        .theme-toggle {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .theme-toggle:hover {
+            color: #ffffff;
+        }
+        .light-theme {
+            background-color: #f0f0f0;
+            color: #121212;
+        }
+        .light-theme .container {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .light-theme .button {
+            background-color: #e0e0e0;
+            color: #121212;
+            border-color: #cccccc;
+        }
+        .light-theme .button:hover {
+            background-color: #d0d0d0;
+            border-color: #bbbbbb;
+        }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
     <div class="container">
         <img src="https://scontent.ftpe4-1.fna.fbcdn.net/v/t39.30808-6/440488974_2099776167044081_3794764817713871643_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=IEmn1MPs2eYQ7kNvgEhKx92&_nc_ht=scontent.ftpe4-1.fna&oh=00_AYAKQQm_zHvKbijsWj6jSCcBlduoDzYng7ddbjPcqQGnAA&oe=6686AF56" alt="尊貴" class="avatar">
         <h1>酷吧 這我個人網站</h1>
@@ -116,16 +148,18 @@
             <a href="https://reurl.cc/MOgWgK" class="button"><i class="fab fa-youtube"></i>Youtube</a>
             <a href="https://github.com/catwbu" class="button"><i class="fab fa-github"></i>GitHub</a>
             <a href="#" class="button"><i class="fab fa-linkedin-in"></i>LinkedIn</a>
-            
-            
         </div>
         <p>我的專案</p>
         <div class="tool-buttons button-container">
-            
             <a href="https://youtube-seo-keyword.pages.dev/" class="button"><i class="fas fa-pen"></i>SEO主題生成器</a>
             <a href="#" class="button"><i class="fas fa-calculator"></i>HashTag生成器</a>
             <a href="#" class="button"><i class="fas fa-list-ul"></i>個人書單</a>
         </div>
     </div>
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+        }
+    </script>
 </body>
 </html>
