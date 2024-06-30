@@ -106,19 +106,23 @@
             }
         }
         .theme-toggle {
-            position: fixed;
-            top: 10px;
-            left: 10px;
+            display: inline-block;
+            margin-bottom: 1rem;
             background: none;
             border: none;
             color: #e0e0e0;
             font-size: 1.5rem;
             cursor: pointer;
+            transition: color 0.3s, box-shadow 0.3s;
+            position: relative;
             z-index: 1000;
-            transition: color 0.3s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 0.5rem;
         }
         .theme-toggle:hover {
             color: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
         }
         .light-theme {
             background-color: #f0f0f0;
@@ -137,11 +141,19 @@
             background-color: #d0d0d0;
             border-color: #bbbbbb;
         }
+        .light-theme .theme-toggle {
+            color: #121212;
+            box-shadow: 0 0 10px rgba(200, 200, 200, 0.7);
+        }
+        .light-theme .theme-toggle:hover {
+            color: #000000;
+            box-shadow: 0 0 15px rgba(200, 200, 200, 0.9);
+        }
     </style>
 </head>
 <body>
-    <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
     <div class="container">
+        <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
         <img src="https://scontent.ftpe4-1.fna.fbcdn.net/v/t39.30808-6/440488974_2099776167044081_3794764817713871643_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=IEmn1MPs2eYQ7kNvgEhKx92&_nc_ht=scontent.ftpe4-1.fna&oh=00_AYAKQQm_zHvKbijsWj6jSCcBlduoDzYng7ddbjPcqQGnAA&oe=6686AF56" alt="尊貴" class="avatar">
         <h1>酷吧 這我個人網站</h1>
         <p>社群連結</p>
